@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="profile">
+    <div class="profile">
+        <div class="profile-options">
+            <div>
+                <a th:href="@{'/products/new'}">
+                    <label>New product</label>
+                    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div>
+                <a th:href="@{'/profile/edit'}">
+                    <label>Edit profile</label>
+                    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div>
+                <a th:href="@{'/logout'}">
+                    <label>Logout</label>
+                    <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <div class="profile-main">
+            <div class="profile-image">
+                <img th:src="@{'/profile/img'}">
+            </div>
+            <div>
+                <h3 th:text="${username}"></h3>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div>
+                <label>Followers: </label><label th:text="${followers}"></label>
+                <label>Following: </label><label th:text="${following}"></label>
+            </div>
+            <div>
+                <label>Products: </label><label th:text="${allProducts}"></label>
+                <label>Sold: </label><label th:text="${soldProducts}"></label>
+            </div>
+            <div>
+                <form th:action="@{/products}" method="get">
+                    <input hidden id="userId" name="userId" th:value="${id}">
+                    <input class="btn" type="submit" value="My products">
+                </form>
+            </div>
+        </div>
+        <h5>About me</h5>
+        <hr>
+        <div>
+            <label th:text="${description}"></label>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="products">
+    <div class="products-body">
+        <div class="products">
+            <div class="product-item" th:each="product: ${products}">
+                <a th:href="@{'/products/' + ${product.id}}">
+                    <div class="product-img">
+                        <img th:src="@{'/products/' + ${product.id} + '/img'}" style='object-fit: contain'>
+                        <div th:if="${product.isNew}" class="product-new">New</div>
+                        <div th:if="${product.isSold}" class="product-sold">Sold</div>
+                    </div>
+                    <div>
+                        <label th:text="${product.name}"></label>
+                    </div>
+                    <hr>
+                </a>
+                <div>
+                    <div class="product-wish">
+                        <div th:if="${product.inWishlist == false}">
+                            <form th:action="@{'/wishlist/add/' + ${product.id}}" method="get">
+                                <button type="submit">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div th:if="${product.inWishlist == true}">
+                            <form th:action="@{'/wishlist/delete/' + ${product.id}}" method="get">
+                                <button type="submit">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="product-price"><label th:text="${product.price} + ' ' + ${product.currency}"></label></div>
+                </div>
+            </div>
+        </div>
+        <div class="pages">
+            1,2,3
+        </div>
+    </div>
+</div>
+</body>
+</html>

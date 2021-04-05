@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div class="header" th:fragment="header">
+    <div></div>
+    <div>
+        <form th:action="@{'/search'}" method="get">
+            <input class="search-input" name="searchText" type="search" placeholder="Search...">
+            <input class="search-btn" type="submit" value="Search">
+        </form>
+    </div>
+    <div>
+        <button id="filter-btn">
+            <i class="fa fa-filter fa-2x" aria-hidden="true"></i>
+            <div>
+                <label>Filter</label>
+            </div>
+        </button>
+    </div>
+    <div>
+        <button>
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            <div>
+                <label>Profile</label>
+            </div>
+        </button>
+    </div>
+</div>
+</body>
+</html>

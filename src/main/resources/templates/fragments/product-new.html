@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="new">
+    <div class="product-new">
+        <h4>New product</h4>
+    <form th:action="@{/products/new}" method="post" th:object="${product}" enctype="multipart/form-data">
+        <div>
+            <input class="new-field" th:field="*{name}" type="text" placeholder="Product name">
+        </div>
+        <div>
+            <textarea class="new-field" th:field="*{description}" rows="3" cols="30" placeholder="Description"></textarea>
+        </div>
+        <div>
+            <input th:field="*{isNew}" type="checkbox"><label> New</label>
+        </div>
+        <div>
+            <input class="price" th:field="*{price}" type="number" placeholder="Price">
+            <select class="currency" th:field="*{currency}">
+                <option th:each="c : ${currencies}" th:value="${c}" th:text="${c}"></option>
+            </select>
+        </div>
+        <div>
+            <div>
+                <select class="new-field" th:field="*{gender}">
+                    <option th:each="g : ${genders}" th:value="${g}" th:text="${g}"></option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input class="new-field" th:field="*{brandName}" list="brand" placeholder="Select brand">
+                <datalist id="brand">
+                    <option th:each="b : ${brands}" th:value="${b.getName()}" th:text="${b.getName()}"></option>
+                </datalist>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <select class="new-field" th:field="*{mainCategory}" id="mainCategory" onclick="onMainCategoryChanged()">
+                        <option th:each="m : ${mainCategories}" th:value="${m}" th:text="${m}"></option>
+                    </select>
+                </div>
+                <div>
+                    <input class="new-field" th:field="*{categoryName}" list="category" placeholder="Category" autocomplete="off">
+                    <datalist id="category">
+                        <script th:inline="javascript"></script>
+                    </datalist>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input class="new-field" th:field="*{sizeName}" list="size" placeholder="Select size">
+                <datalist id="size">
+                    <option th:each="s : ${sizes}" th:value="${s.getName()}" th:text="${s.getName()}"></option>
+                </datalist>
+            </div>
+        </div>
+        <div>
+            <div>
+                <select class="new-field" th:field="*{color}">
+                    <option th:each="c : ${colors}" th:value="${c}" th:text="${c}"></option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Upload image</label>
+            </div>
+            <div>
+                <input id="imageFile" name="imageFile" type="file" accept="image/*">
+            </div>
+        </div>
+        <hr>
+        <div>
+            <input class="btn" type="submit" value="Add">
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+</html>

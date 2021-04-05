@@ -1,0 +1,31 @@
+.product-details {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 60%;
+    height: 60%;
+    margin: 2% auto auto;
+}
+
+.product-main {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.product-main img{
+
+}
+
+.product-all {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin: 8% auto auto;
+}
+
+.product-description {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.product-all div {
+    text-align: left;
+}

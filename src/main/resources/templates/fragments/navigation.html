@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div class="navigation" th:fragment="navigation">
+    <div title="Home">
+        <a th:href="@{'/'}">
+            <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+            <div>
+                <label>Home</label>
+            </div>
+        </a>
+    </div>
+    <div title="Users">
+        <a th:href="@{'/users'}">
+            <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+            <div>
+                <label>Users</label>
+            </div>
+        </a>
+    </div>
+    <div title="Wishlist">
+        <a th:href="@{'/wishlist'}">
+            <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+            <div>
+                <label>Wishlist</label>
+            </div>
+        </a>
+    </div>
+    <div title="">
+        <a th:href="@{'/profile'}">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            <div>
+                <label>Profile</label>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

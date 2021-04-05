@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="details">
+    <div class="product-details">
+        <div class="product-main">
+            <div>
+                <img th:src="@{'/products/' + ${product.id} + '/img'}">
+            </div>
+            <div>
+                <label th:text="${product.name}"></label>
+            </div>
+            <div>
+                <label th:text="${product.price} + ' ' + ${product.currency}"></label>
+            </div>
+        </div>
+        <div class="product-all">
+            <div>
+                <label>Brand:  </label>
+            </div>
+            <div>
+                <label th:text="${product.brandName}"></label>
+            </div>
+            <div>
+                <label>Size:  </label>
+            </div>
+            <div>
+                <label th:text="${product.sizeName}"></label>
+            </div>
+            <div>
+                <label>Color:  </label>
+            </div>
+            <div>
+                <label th:text="${product.color}"></label>
+            </div>
+            <div>
+                <label>Gender:  </label>
+            </div>
+            <div>
+                <label th:text="${product.gender}"></label>
+            </div>
+            <div>
+                <label>Category:  </label>
+            </div>
+            <div>
+                <label th:text="${product.mainCategory} + '-' + ${product.categoryName}"></label>
+            </div>
+            <div>
+                <label>Created by:  </label>
+            </div>
+            <div>
+                <label th:text="${username}"></label>
+            </div>
+            <div class="product-description">
+                <div>
+                    <label>Description: </label>
+                </div>
+                <hr>
+                <label th:text="${product.description}"></label>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

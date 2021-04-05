@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="users">
+    <div class="users-body">
+        <div class="users">
+            <div class="user" th:each="user : ${users}">
+                <a th:href="@{'/users/' + ${user.id}}">
+                    <div class="user-img">
+                        <img th:src="@{'/users/' + ${user.id} + '/img' }">
+                    </div>
+                    <hr>
+                    <div style="padding-bottom: 5px">
+                        <label th:text="${user.username}"></label>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="pages">
+            1,2,3
+        </div>
+    </div>
+</div>
+</body>
+</html>

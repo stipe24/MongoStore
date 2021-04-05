@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="details">
+    <div class="profile">
+        <div class="profile-main">
+            <div class="profile-image">
+                <img th:src="@{'/users/' + ${id} + '/img'}">
+            </div>
+            <div>
+                <h3 th:text="${username}"></h3>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div>
+                <label>Followers: </label><label th:text="${followers}"></label>
+                <label>Following: </label><label th:text="${following}"></label>
+            </div>
+            <div>
+                <div th:if="${notFollowing != null and notFollowing}">
+                    <form th:action="@{/follow}" method="get">
+                        <input hidden id="following" name="following" th:value="${id}">
+                        <input class="btn" type="submit" value="Follow">
+                    </form>
+                </div>
+                <div th:if="${notFollowing != null and !notFollowing}">
+                    <form th:action="@{/unfollow}" method="get">
+                        <input hidden id="following" name="following" th:value="${id}">
+                        <input class="btn" type="submit" value="Unfollow">
+                    </form>
+                </div>
+            </div>
+            <div>
+                <label>Products: </label><label th:text="${allProducts}"></label>
+                <label>Sold: </label><label th:text="${soldProducts}"></label>
+            </div>
+            <div>
+                <form th:action="@{/products}" method="get">
+                    <input hidden id="userId" name="userId" th:value="${id}">
+                    <input class="btn" type="submit" value="Products">
+                </form>
+            </div>
+        </div>
+        <h5>About me</h5>
+        <hr>
+        <div>
+            <label th:text="${description}"></label>
+        </div>
+    </div>
+</div>
+</body>
+</html>

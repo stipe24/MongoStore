@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="edit">
+    <form class="profile" th:object="${user}" th:action="@{'/profile/edit'}" method="post" enctype="multipart/form-data">
+        <h4>Edit profile</h4>
+        <div class="profile-image">
+            <img th:src="@{'/profile/img'}">
+        </div>
+        <div>
+            <div>
+                <label>Image</label>
+            </div>
+            <input class="profile-edit" id="imageFile" name="imageFile" type="file" accept="image/*">
+        </div>
+        <div>
+            <div>
+                <label>Username</label>
+            </div>
+            <div>
+                <input class="profile-edit" id="username" type="text" th:field="*{username}">
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Description</label>
+            </div>
+            <div>
+                <textarea class="profile-edit" rows="3" id="description" th:field="*{description}"></textarea>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <input class="btn" type="submit" value="Edit profile">
+            <input class="btn" type="button" th:href="@{'/profile/delete'}" value="Delete profile" onclick="return confirm('Are you sure?')">
+        </div>
+    </form>
+</div>
+</body>
+</html>

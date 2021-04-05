@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div id="filter" class="filter" th:fragment="filter">
+    <form th:action="@{'/products'}" method="get">
+        <div>
+            <div>
+                <label>Sort by</label>
+            </div>
+            <select name="sortBy">
+                <option th:each="sort : ${T(com.stipe.mstore.helper.ProductsSort).values()}"
+                        th:value="${sort}" th:text="${sort}"></option>
+            </select>
+        </div>
+        <div>
+            <div>
+                <label>Gender</label>
+            </div>
+            <select name="gender">
+                <option th:each="gender : ${T(com.stipe.mstore.enums.Gender).values()}"
+                        th:value="${gender}" th:text="${gender}"></option>
+            </select>
+        </div>
+        <div>
+            <div>
+                <label>Category</label>
+            </div>
+            <select id="mainCategory" name="mainCategory" onclick="onMainCategoryChanged()">
+                <option th:each="mc : ${T(com.stipe.mstore.enums.MainCategory).values()}"
+                        th:value="${mc}" th:text="${mc}"></option>
+            </select>
+        </div>
+        <div>
+            <select id="category" name="categoryName">
+            </select>
+        </div>
+        <div>
+            <div>
+                <label>Brand</label>
+            </div>
+            <select id="brands" name="brandNames">
+            </select>
+        </div>
+        <div>
+            <div>
+                <label>Size</label>
+            </div>
+            <select id="sizes" name="sizeNames">
+            </select>
+        </div>
+        <div>
+            <div>
+                <label>Color</label>
+            </div>
+            <select name="colors">
+                <option th:each="color : ${T(com.stipe.mstore.enums.Color).values()}"
+                        th:value="${color}" th:text="${color}"></option>
+            </select>
+        </div>
+        <div>
+            <input name="isNew" type="checkbox"><label> New</label>
+        </div>
+        <div>
+            <!-- PRICE -->
+        </div>
+        <hr>
+        <div>
+            <input class="btn" type="submit" value="Apply filters">
+        </div>
+    </form>
+</div>
+</body>
+</html>

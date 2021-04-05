@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+<div class="page">
+    <div class="navigation" th:replace="fragments/navigation.html :: navigation">
+    </div>
+    <div class="body">
+        <div class="header" th:replace="fragments/header.html :: header"></div>
+        <div class="content">
+            <div class="body" th:replace="fragments/user-details.html :: details">
+            </div>
+            <div class="filter" th:replace="fragments/filter.html :: filter">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/filter.js"></script>
+</body>
+</html>
